@@ -149,3 +149,13 @@ variable "stop_timeout" {
   description = "Time duration (in seconds) to wait before the container is forcefully killed if it doesn't exit normally on its own. On Fargate the maximum value is 120 seconds."
   default     = 30
 }
+
+variable "stickiness_enabled" {
+  default = false
+  description = "Enable load balancer target group stickyness"
+}
+
+variable "stickiness_cookie_duration" {
+  default = 86400
+  description = "The time period, in seconds, during which requests from a client should be routed to the same target."
+}

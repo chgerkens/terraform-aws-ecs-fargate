@@ -95,6 +95,11 @@ resource "aws_lb_target_group" "task" {
       unhealthy_threshold = lookup(health_check.value, "unhealthy_threshold", null)
     }
   }
+  stickiness {
+    type            = "lb_cookie"
+    cookie_duration = var.stickiness_cookie_duration
+    enabled         = var.stickiness_enabled
+  }
 
   # NOTE: TF is unable to destroy a target group while a listener is attached,
   # therefor we have to create a new one before destroying the old. This also means
