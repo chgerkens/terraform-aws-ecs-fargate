@@ -20,8 +20,7 @@ data "aws_subnet_ids" "main" {
 
 
 module "fargate_alb" {
-  source  = "telia-oss/loadbalancer/aws"
-  version = "3.0.0"
+  source  = "github.com/chgerkens/terraform-aws-ecs-fargate.git?ref=master"
 
   name_prefix = var.name_prefix
   type        = "application"
